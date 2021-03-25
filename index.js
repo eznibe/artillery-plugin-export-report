@@ -32,6 +32,7 @@ function Plugin(script, events) {
       delete report.latencies;
 
       // report.phases = _.get(script, 'config.phases', []);
+      report.phases = script.config.phases;
 
       let logfile = "plugin-result.json";
       fs.writeFileSync(
