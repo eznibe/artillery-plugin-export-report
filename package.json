@@ -1,0 +1,17 @@
+{
+  "name": "artillery-plugin-export-report",
+  "version": "0.0.1",
+  "description": "Artillery plugin export result",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "private",
+  "dependencies": {
+	"transfer-sh": "2.1.1"
+  },
+  "engines": {
+    "node": "12.16.2",
+    "npm": "6.14.4"
+  }
+}
