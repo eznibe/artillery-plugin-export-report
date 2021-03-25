@@ -23,8 +23,8 @@ function Plugin(script, events) {
   });
 
    events.on('done', async function(allStats) {
-     console.log('DONE plugin', intermediates)
-     // TODO store as json and send via Transfer, all with await
+     console.log('DONE plugin');
+     
      let report = allStats; //.report();
 
       delete report.concurrency;
