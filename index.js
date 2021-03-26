@@ -10,20 +10,15 @@
  
  let intermediates = [];
  
-// NOTE: Will not work with `parallel` - need request UIDs for that
 function Plugin(script, events) {
-   console.log('INIT export report');
-   if (!script.config.processor) {
-     script.config.processor = {};
-   }
-
+   
   events.on('stats', function(stats) {
     let report = stats.report();
     intermediates.push(report);
   });
 
    events.on('done', async function(allStats) {
-     console.log('DONE plugin');
+     //console.log('DONE plugin');
      
      let report = allStats; //.report();
 
@@ -69,18 +64,3 @@ function Plugin(script, events) {
     });
 };
  
- function transferReport(logfile) {
-  return new Promise((resolve, reject) => {
-    console.log();
-    new Transfer('./' + logfile).upload()
-    .then(function (link) { 
-      console.log(link) 
-      resolve(link);
-    })
-    .catch(function (err) { 
-      console.log(err) 
-      reject();
-    });
-  });
-  
- }
