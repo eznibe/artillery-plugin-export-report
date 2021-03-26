@@ -9,6 +9,7 @@
  module.exports = { Plugin };
  
  let intermediates = [];
+ const resultfile = 'exported-result.json';
  
 function Plugin(script, events) {
    
@@ -29,9 +30,8 @@ function Plugin(script, events) {
       // report.phases = _.get(script, 'config.phases', []);
       report.phases = script.config.phases;
 
-      let logfile = "plugin-result.json";
       fs.writeFileSync(
-        logfile,
+        resultfile,
         JSON.stringify(
           {
             aggregate: report,
@@ -49,7 +49,7 @@ function Plugin(script, events) {
   async.eachSeries(
     [1],
     (reporter, next) => {
-      new Transfer('./plugin-result.json').upload()
+      new Transfer('./' + resultfile).upload()
       .then(function (link) { 
         console.log(link) 
         next();
