@@ -9,7 +9,7 @@
  module.exports = { Plugin };
  
  let intermediates = [];
- const resultfile = 'exported-result.json';
+ const resultfile = 'result.json';
  
 function Plugin(script, events) {
    
